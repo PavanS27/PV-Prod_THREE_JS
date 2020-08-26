@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Interactive 3D Character with Three.js | Codrops</title>
+    <title>Three</title>
     <meta
       name="description"
       content="Demo for the tutorial on how to add an interactive 3D character to a website."
@@ -13,8 +13,9 @@
       content="3d model, three.js, tutorial, interactive, website, web development"
     />
     <meta name="author" content="Codrops" />
-    <link rel="shortcut icon" href="favicon.ico" />
+
     <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       document.documentElement.className = "js";
       var supportsCssVars = function () {
@@ -47,13 +48,30 @@
       <canvas id="c"></canvas>
     </div>
     <div class="frame">
+      <h1
+        class="h"
+        style="
+          font-family: fantasy;
+          font-size: 140px;
+          border: 6px solid black;
+          background: transparent;
+          position: fixed;
+          left: 50%;
+          top: 40%;
+          transform: translate(-50%, -50%);
+          padding: 20px;
+        "
+      >
+        McLAREN P1
+      </h1>
       <!-- <h1 class="frame__title">Interactive 3D Character with Three.js</h1>
       <div class="frame__links">
         <a href="http://tympanus.net/Tutorials/Blurry/">Previous demo</a>
         <a href="https://tympanus.net/codrops/?p=43796">Tutorial</a>
       </div> -->
 
-      <embed style="display: none;" id="model" src="js/Premier Ball.glb" />
+      <embed style="display: none;" id="model" src="js/McLaren.glb" />
+      <embed style="display: none;" id="model1" src="js/pidrod.glb" />
       <button>One</button>
       <button>Two</button>
     </div>
@@ -67,5 +85,10 @@
     <script src="https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/controls/OrbitControls.js"></script>
     <!-- partial -->
     <script type="module" src="js/script.js"></script>
+    <script>
+      setTimeout(function () {
+        $(".h").fadeOut("slow");
+      }, 1500);
+    </script>
   </body>
 </html>

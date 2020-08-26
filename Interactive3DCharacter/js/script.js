@@ -19,6 +19,8 @@
 
   function init() {
     const MODEL_PATH = document.getElementById("model").src;
+    const MODEL_PATH1 = document.getElementById("model1").src;
+
     const canvas = document.querySelector("#c");
     const backgroundColor = 0xf1f1f1;
 
@@ -41,12 +43,18 @@
       1000
     );
 
-    camera.position.z = 20;
+    camera.position.z = 10;
     camera.position.x = 0;
-    camera.position.y = -3;
+    camera.position.y = 0;
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.update();
+    controls.maxPolarAngle = Math.PI / 2;
+    controls.minPolarAngle = Math.PI / 3;
+    controls.enableDamping = true;
+    controls.enablePan = false;
+    controls.dampingFactor = 1;
+    controls.autoRotate = false;
+    controls.autoRotateSpeed = 0.2;
 
     let stacy_txt = new THREE.TextureLoader().load(
       "js/gltf_embedded_5@channels=RGB.png"
@@ -60,9 +68,11 @@
     });
 
     var loader = new THREE.GLTFLoader();
+    var loader1 = new THREE.GLTFLoader();
 
     loader.load(
       MODEL_PATH,
+
       function (gltf) {
         model = gltf.scene;
         let fileAnimations = gltf.animations;
@@ -84,8 +94,11 @@
 
         model.scale.set(7, 7, 7);
         model.position.y = 0;
-        model.rotation.y = 0;
+        model.rotation.y = 0.3;
         model.rotation.z = 0;
+        setTimeout(function () {
+          camera.position.x = -2;
+        }, 1500);
         scene.add(model);
 
         loaderAnim.remove();
@@ -123,8 +136,8 @@
     // Add hemisphere light to scene
     scene.add(hemiLight);
 
-    let d = 8.25;
-    let dirLight = new THREE.DirectionalLight(0xffffff, 0.54);
+    let d = 18.25;
+    let dirLight = new THREE.DirectionalLight(0xffffff, 0.74);
     dirLight.position.set(-8, 12, 8);
     dirLight.castShadow = true;
     dirLight.shadow.mapSize = new THREE.Vector2(1024, 1024);
@@ -152,6 +165,7 @@
   }
 
   function update() {
+    controls.update();
     if (mixer) {
       mixer.update(clock.getDelta());
     }
