@@ -15,7 +15,17 @@
     <meta name="author" content="Codrops" />
 
     <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
       document.documentElement.className = "js";
       var supportsCssVars = function () {
@@ -40,55 +50,617 @@
     </script>
   </head>
   <body>
-    <div class="loading" id="js-loader">
+    <div
+      class="loading"
+      id="js-loader"
+      style="background-color: rgb(231, 208, 0)"
+    >
       <div class="loader"></div>
     </div>
-    <div class="wrapper">
+
+    <div class="wrapper" id="wrapper" style="position: fixed; z-index: -50">
       <!-- The canvas element is used to draw the 3D scene -->
-      <canvas id="c"></canvas>
+      <canvas id="c" style="position: fixed; z-index: -50"></canvas>
+
+      <!-- Use any element to open the sidenav -->
     </div>
     <div class="frame">
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <a href="#popup1" style="color: black"><i class="fas fa-bars"></i></a>
+        </label>
+        <img
+          src="js/1c2d2def-c91d-479b-ad14-c1a403e5d99e_200x200.png"
+          alt="logo"
+          class="logo"
+        />
+
+        <ul>
+          <li><a class="active" href="#">Intro</a></li>
+          <li><a href="#">Who</a></li>
+          <li><a href="#">What</a></li>
+          <li><a href="#">Work</a></li>
+        </ul>
+        <small class="contact"
+          ><a href="#popup" style="color: #000; text-decoration: none"
+            >Contact</a
+          ></small
+        >
+        <div id="popup" class="popup">
+          <a href="#" class="close">&times;</a>
+          <h2 class="title">Contact Us</h2>
+          <p class="email">pvrod@gmail.com</p>
+        </div>
+        <a href="#" class="close-popup"></a>
+
+        <div id="popup1" class="popup1">
+          <a href="#" class="close1">&times;</a>
+          <div class="listgrp">
+            <small class="nav1">Intro</small>
+            <small class="nav2">Who</small>
+            <small class="nav3">What</small>
+            <small class="nav4">Work</small>
+          </div>
+        </div>
+        <a href="#" class="close-popup1"></a>
+      </nav>
       <h1
         class="h"
         style="
-          font-family: fantasy;
-          font-size: 140px;
-          border: 6px solid black;
+          font-size: 120px;
+          text-shadow: 1px 1px 10px black;
           background: transparent;
-          position: fixed;
+          position: absolute;
           left: 50%;
-          top: 40%;
+          text-align: center;
+          top: 150%;
+          margin-top: 200px;
           transform: translate(-50%, -50%);
+          width: 100%;
           padding: 20px;
+          color: white;
+          z-index: 99;
+          user-select: none;
         "
       >
-        McLAREN P1
+        Toy Factory
       </h1>
-      <!-- <h1 class="frame__title">Interactive 3D Character with Three.js</h1>
-      <div class="frame__links">
-        <a href="http://tympanus.net/Tutorials/Blurry/">Previous demo</a>
-        <a href="https://tympanus.net/codrops/?p=43796">Tutorial</a>
-      </div> -->
 
-      <embed style="display: none;" id="model" src="js/McLaren.glb" />
-      <embed style="display: none;" id="model1" src="js/pidrod.glb" />
-      <button>One</button>
-      <button>Two</button>
+      <embed
+        style="display: none"
+        id="model"
+        class="model"
+        data-speed="3"
+        src="js/gumball_finished_smooth_obj.glb"
+      />
+      <embed style="display: none" id="model1" src="js/pidrod.glb" />
+    </div>
+    <i
+      class="fa fa-angle-down"
+      style="
+        font-size: 30px;
+        position: absolute;
+        top: 97%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+      "
+    ></i>
+
+    <div
+      style="
+        height: 60vh;
+        width: 100%;
+        background: linear-gradient(to bottom, #fff000, yellow);
+        position: absolute;
+        top: 100%;
+        box-shadow: -20px -10px 100px 0px #fff000;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 200px;
+      "
+    >
+      <small style="width: 100%; text-align: center" class="textS"
+        >SMALL AND CRAFTY</small
+      >
+      <h1 style="width: 70%; text-align: center; font-size: 36px" class="textH">
+        PV Productions is an award winning creative agency specialising in
+        design.
+      </h1>
+      <p style="width: 50%; text-align: center" class="textP">
+        We partner with global brands and emerging businesses to create exciting
+        and meaningful experiences, whether digital or non-digital.
+      </p>
+    </div>
+    <div
+      class="ads"
+      style="
+        width: 100%;
+        height: 100vh;
+        background: yellow;
+
+        position: absolute;
+        top: 155%;
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <h1
+        style="
+          font-size: 60px;
+          margin: 0;
+          text-align: center;
+          border: 10px solid black;
+          padding: 30px 70px;
+        "
+      >
+        Recent<br />
+        Work
+      </h1>
+    </div>
+    <div
+      style="
+        width: 100%;
+        height: 60vh;
+        background: rgb(245, 244, 244);
+        display: flex;
+        justify-content: center;
+
+        position: absolute;
+        top: 260%;
+      "
+    >
+      <img
+        src="js/design-262182c8-a92b-4cd5-b857-13dbcd71fea9.png"
+        alt=""
+        style="
+          width: 400px;
+          height: 470px;
+          z-index: 999;
+          margin-top: 46px;
+          filter: grayscale(100%);
+          pointer-events: none;
+        "
+      />
+      <h1
+        style="
+          position: absolute;
+          top: 10%;
+          font-size: 140px;
+          opacity: 0.4;
+          color: white;
+          user-select: none;
+          font-family: toy;
+          text-shadow: 1px 1px 12px black;
+        "
+      >
+        Toy Factory
+      </h1>
+    </div>
+    <div
+      style="
+        width: 100%;
+        height: 7vh;
+        background: white;
+        z-index: -10;
+        position: absolute;
+        top: 318%;
+        display: flex;
+        align-items: start;
+      "
+    >
+      <small style="position: absolute; top: 50%; left: 4%"
+        >ToyFactory® — Bangalore, Karnataka, India</small
+      >
+      <div
+        style="
+          display: flex;
+          justify-content: space-around;
+          width: 15%;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          margin-right: 50px;
+        "
+      >
+        <span
+          ><i
+            class="fab fa-facebook"
+            style="font-size: 20px; cursor: pointer"
+          ></i
+        ></span>
+        <span
+          ><i
+            class="fab fa-twitter"
+            style="font-size: 20px; cursor: pointer"
+          ></i
+        ></span>
+        <span
+          ><i
+            class="fab fa-youtube"
+            style="font-size: 20px; cursor: pointer"
+          ></i
+        ></span>
+        <span
+          ><i
+            class="fab fa-instagram"
+            style="font-size: 20px; cursor: pointer"
+          ></i
+        ></span>
+      </div>
     </div>
 
-    <!-- <span class="action">Click me!</span> -->
-
-    <!-- The main Three.js file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"></script>
-    <!-- This brings in the ability to load custom 3D objects in the .gltf file format. Blender allows the ability to export to this format out the box -->
+
     <script src="https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/controls/OrbitControls.js"></script>
-    <!-- partial -->
+    <script
+      type="module"
+      src="/Interactive3DCharacter/magic-scroll-master/dist/MagicScroll.cjs.js"
+    ></script>
+
     <script type="module" src="js/script.js"></script>
-    <script>
+
+    <!-- <script>
       setTimeout(function () {
         $(".h").fadeOut("slow");
-      }, 1500);
+      }, 3000);
+    </script> -->
+    <script>
+      $(window).scroll(function () {
+        var scrollTop = $(window).scrollTop();
+        var height = $(window).height();
+
+        $(".h").css({
+          opacity: (height - scrollTop) / height,
+        });
+      });
+      (function ($) {
+        $(document).on("contextmenu", "img", function () {
+          return false;
+        });
+      })(jQuery);
     </script>
+    <script src="js/bundle.js"></script>
+    <script type="text/javascript">
+      document.addEventListener("mousemove", parallax);
+      function parallax(e) {
+        this.querySelectorAll(".model").forEach((layer) => {
+          const speed = layer.getAttribute("data-speed");
+          const x = (window.innerWidth - e.pageX * speed) / 100;
+          const y = (window.innerHeight - e.pageY * speed) / 100;
+
+          layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+      }
+      let magicScroll = new MagicScroll({
+        target: document.querySelector("html"),
+      });
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      @font-face {
+        font-family: toy;
+        src: url(js/KidsClubHouse-vmnny.ttf);
+      }
+      .h {
+        font-family: toy;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        border-radius: 20px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.911);
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 20px;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      .logo {
+        width: 120px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100px;
+      }
+      nav {
+        background: transparent;
+        height: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul {
+        float: right;
+        text-transform: uppercase;
+      }
+      nav ul li {
+        display: inline-block;
+        line-height: 20px;
+        margin: 0 3px;
+      }
+      nav ul li a {
+        color: black;
+        font-weight: 900;
+        font-size: 15px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+      }
+      .checkbtn {
+        font-size: 30px;
+        color: white;
+        float: right;
+        line-height: 80px;
+        margin-right: 40px;
+        cursor: pointer;
+        display: none;
+      }
+      #check {
+        display: none;
+      }
+      /*Contact modal*/
+      .contact {
+        text-transform: uppercase;
+
+        font-family: "Poppins", sans-serif;
+        position: absolute;
+        right: 0;
+        font-weight: 900;
+        font-size: 15px;
+        margin: 30px;
+        margin-top: 10px;
+      }
+      .heading {
+        text-transform: uppercase;
+        font-family: "Poppins", sans-serif;
+        font-size: 129px;
+        letter-spacing: 8px;
+        z-index: 1;
+        color: white;
+        text-shadow: 2px 2px 20px black;
+      }
+      .title {
+        position: absolute;
+        font-family: "Poppins", sans-serif;
+        font-size: 25px;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: 100;
+      }
+      .email {
+        position: absolute;
+        font-family: "Poppins", sans-serif;
+        font-size: 90px;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .popup {
+        position: fixed;
+        padding: 10px;
+        width: 95%;
+        height: 92%;
+        border-radius: 2px;
+        top: 50%;
+        left: 50%;
+        color: #000;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 1);
+        visibility: hidden;
+
+        opacity: 0;
+        transition: opacity 0.5s, visibility 0s linear 0.5s;
+        z-index: 100;
+      }
+      .popup:target {
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s;
+      }
+      .popup .close {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        padding: 5px;
+        color: #000;
+        transition: color 0.3s;
+        font-size: 3em;
+        line-height: 1.5;
+        font-weight: 700;
+        opacity: 0.5;
+        transition: 0.3s ease;
+        text-decoration: none;
+      }
+      .popup .close:hover {
+        transform: scale(1.1);
+        transition: 0.3s ease;
+        opacity: 1;
+      }
+      .close-popup {
+        background-color: rgba(0, 0, 0, 0.7);
+        cursor: default;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+
+        transition: opacity 0.5s, visibility 0s linear 0.5s;
+      }
+      .popup:target + .close-popup {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
+      }
+      /*Responsive navbar modal*/
+      .popup1 {
+        position: fixed;
+        padding: 10px;
+        width: 93%;
+        height: 97%;
+        border-radius: 2px;
+        top: 50%;
+        left: 50%;
+        color: #000;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 1);
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s, visibility 0s linear 0.5s;
+        z-index: 3;
+      }
+      .popup1:target {
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0s;
+      }
+      .popup1 .close1 {
+        position: absolute;
+        right: 20px;
+        top: 5px;
+        padding: 5px;
+        color: #000;
+        transition: color 0.3s;
+        font-size: 3em;
+        line-height: 1.5;
+        font-weight: 700;
+        opacity: 0.5;
+        transition: 0.3s ease;
+      }
+      .popup1 .close1:hover {
+        transform: scale(1.1);
+        transition: 0.3s ease;
+        opacity: 1;
+      }
+      .close-popup1 {
+        background-color: rgba(0, 0, 0, 0.7);
+        cursor: default;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s, visibility 0s linear 0.5s;
+      }
+      .popup1:target + .close-popup1 {
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
+      }
+
+      @media (max-width: 952px) {
+        nav ul li a {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 858px) {
+        .checkbtn {
+          display: block;
+          position: absolute;
+          right: 0;
+          float: right;
+          margin-top: 15px;
+        }
+        .contact {
+          display: none;
+        }
+        .section1 .bgimg {
+          width: 80%;
+          height: 33%;
+          position: absolute;
+          left: 10%;
+          top: 35%;
+        }
+        .listgrp {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          position: absolute;
+          top: 40%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        .listgrp small {
+          font-size: 22px;
+          text-transform: uppercase;
+          padding: 20px;
+          font-family: "Poppins", sans-serif;
+        }
+
+        nav ul {
+          position: fixed;
+          width: 100%;
+          height: 100vh;
+          background: transparent;
+          top: 80px;
+          left: -100%;
+          text-align: center;
+          transition: all 0.5s;
+          z-index: 10;
+        }
+        nav ul li {
+          display: none;
+          margin: 50px 0;
+          line-height: 30px;
+        }
+        nav ul li a {
+          font-size: 20px;
+        }
+        a:hover,
+        a.active {
+          background: none;
+          color: #0082e6;
+        }
+        #check:checked ~ ul {
+          left: 0;
+        }
+        .heading {
+          font-size: 60px;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .textS,
+        .textH,
+        .textP {
+          width: 100% !important;
+          font-size: 10px;
+        }
+        .textH {
+          font-size: 10px !important;
+        }
+        .h {
+          font-size: 50px;
+        }
+      }
+    </style>
   </body>
 </html>
