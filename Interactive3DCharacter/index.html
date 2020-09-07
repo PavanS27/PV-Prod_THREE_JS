@@ -181,7 +181,6 @@
       style="
         width: 100%;
         height: 100vh;
-        background: yellow;
 
         position: absolute;
         top: 155%;
@@ -189,8 +188,36 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
       "
     >
+      <img
+        src="js/design-6977cdf2-eaeb-4b64-b043-c82f26f5d10f.png"
+        alt=""
+        style="
+          width: 300px;
+          height: 300px;
+          position: absolute;
+          z-index: 999;
+          left: 0;
+          top: 0;
+          margin-left: 100px;
+        "
+      />
+      <img
+        src="js/design-97603dd3-46fd-4da6-8128-30e06e0b261b.png"
+        alt=""
+        style="
+          width: 300px;
+          height: 500px;
+          position: absolute;
+          z-index: 999;
+          right: 0;
+          bottom: 0;
+          margin-right: 80px;
+          margin-bottom: 20px;
+        "
+      />
       <h1
         style="
           font-size: 60px;
@@ -198,12 +225,31 @@
           text-align: center;
           border: 10px solid black;
           padding: 30px 70px;
+          z-index: 999;
         "
       >
         Recent<br />
         Work
       </h1>
+      <button
+        style="
+          background: transparent;
+          border: 2px solid white;
+          padding: 10px 30px;
+          position: absolute;
+          top: 70%;
+          z-index: 999;
+          font-weight: 600;
+        "
+      >
+        View all work
+        <i
+          class="fa fa-arrow-right"
+          style="font-size: 13px; margin-left: 20px"
+        ></i>
+      </button>
     </div>
+    <div class="three"></div>
     <div
       style="
         width: 100%;
@@ -345,6 +391,20 @@
     </script>
 
     <style>
+      .three {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 155%;
+        margin-top: 40px;
+
+        background: linear-gradient(
+          to top right,
+          #fff000 calc(50% - 1px),
+          rgba(121, 121, 121, 0.027),
+          yellow calc(50% + 1px)
+        );
+      }
       html {
         scroll-behavior: smooth;
       }
